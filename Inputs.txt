@@ -1,0 +1,7 @@
+Learning + to + learn
+X123 = ( 8 + B25 )
+speed = distance / time
+Ke = 1/2* mass*speed*speed
+abc + (e_f_g_h * p11) - 456 +ab90 * (45)
+yp = (y - dy/dz + zp * dy/dz) / ((zp - z) / (Q * dz) + 1.5412)
+Xdash = Qdx + t * (x - Qdx)
