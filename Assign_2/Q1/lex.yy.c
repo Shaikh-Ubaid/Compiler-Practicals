@@ -457,21 +457,28 @@ char *yytext;
     a:  is not a helping verb
     nice:  is not a helping verb
     person:  is not a helping verb
+
+    --------------------------------------
+
+    How to run?
+    ~ lex lex.l
+    ~ gcc lex.yy.c
+    ~ ./a.out
  */
-#line 24 "lex.l"
+#line 31 "lex.l"
     #include<ctype.h>  /* Needed for using tolower function */
     int isVerbs(char*); // Function declatation for isVerb
 
     int n = 23; // total no of helping verbs.
     char* verbs[]= {
         "am", "is", "are", "was", "were", "being", "been", 
-        "be ","have", "has", "had", "do", "does", "did", 
+        "be","have", "has", "had", "do", "does", "did", 
         "will", "would", "shall", "should", "may", "might", 
         "must", "can", "could"
     }; // All the helping verbs 
 
-#line 474 "lex.yy.c"
-#line 475 "lex.yy.c"
+#line 481 "lex.yy.c"
+#line 482 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -688,9 +695,9 @@ YY_DECL
 		}
 
 	{
-#line 37 "lex.l"
+#line 44 "lex.l"
 
-#line 694 "lex.yy.c"
+#line 701 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -749,7 +756,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 38 "lex.l"
+#line 45 "lex.l"
 {     // Regex to identify all the english words
     printf("%s: ", yytext);
     // checking the words agains helping verbs
@@ -763,21 +770,21 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 48 "lex.l"
+#line 55 "lex.l"
 ;             // skipping all the remaining chatacters/spaces
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 49 "lex.l"
+#line 56 "lex.l"
 return 1;    // Terminating at the endline.
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 51 "lex.l"
+#line 58 "lex.l"
 ECHO;
 	YY_BREAK
-#line 781 "lex.yy.c"
+#line 788 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1782,7 +1789,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 51 "lex.l"
+#line 58 "lex.l"
 
 
 /*
@@ -1801,7 +1808,8 @@ int isVerbs(char* word){
 
     // checking against all the verbs
     for(int i = 0; i < n; ++i){
-        if(strcmp(word, verbs[i]) == 0) return 1;
+        if(strcmp(word, verbs[i]) == 0)  // strcmp returns 0 when str1 is equal to str2
+            return 1;
     }
     return 0;
 }
