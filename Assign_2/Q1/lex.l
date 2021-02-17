@@ -73,7 +73,8 @@ int isVerbs(char* word){
 
     // checking against all the verbs
     for(int i = 0; i < n; ++i){
-        if(strcmp(word, verbs[i]) == 0) return 1;
+        if(strcmp(word, verbs[i]) == 0)  // strcmp returns 0 when str1 is equal to str2
+            return 1;
     }
     return 0;
 }

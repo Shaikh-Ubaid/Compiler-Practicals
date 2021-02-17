@@ -66,11 +66,11 @@
 
 
 /* First part of user prologue.  */
-#line 2 "gram.y"
+#line 23 "gram.y"
 
-    #include<stdio.h>
-    // int yylex();
-    // void yyerror(char*);
+    #include<stdio.h> /* for using printf */
+    int yylex();  /* delcaring yylex function */
+    void yyerror(char*); /* declaring yyerror function */
 
 #line 76 "y.tab.c"
 
@@ -487,7 +487,7 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    10,    10,    11,    12
+       0,    31,    31,    32,    33
 };
 #endif
 
@@ -1507,16 +1507,19 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 15 "gram.y"
+#line 36 "gram.y"
 
 
 void yyerror(char* err){
-    printf("\nParenthesis are NOT Balanced\n");
+    fprintf(stderr, "%s\n", err);
 }
 
 int main(){
-    if(yyparse() == 0){
+    if(yyparse() == 0){          /* if there is no error then yyparse() returns 0 */
         printf("\nParenthesis are Balanced\n");
+    }
+    else{                        /* if there is error then yyparse() returns 1 */
+        printf("\nParenthesis are NOT Balanced\n");
     }
     return 0;
 }
