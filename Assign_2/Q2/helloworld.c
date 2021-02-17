@@ -1,3 +1,5 @@
+/* A simple C program for testing our Parenthesis Validation Checker */
+
 #include<stdio.h>
 
 

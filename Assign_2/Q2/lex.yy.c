@@ -437,7 +437,24 @@ int yy_flex_debug = 0;
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
 #line 1 "lex.l"
-#line 441 "lex.yy.c"
+#line 2 "lex.l"
+ /*  
+    Group ID 15
+    Adarsh 180001001
+    Jeevan 180001039
+    Ubaid  180001050
+    -------------------------------------------------------------
+    Question 2: 
+    Write a LEX (and YACC) program that can take c program file as an input and can check if there are balance parenthesis ( () and {} ) or not? 
+    For Example- 
+    Input: hello world C program file (or any C program file)
+    Output: Parenthesis are balanced
+    Or Parenthesis are not balanced
+    -------------------------------------------------------------
+   How to run?
+    lex lex.l && yacc gram.y && gcc lex.yy.c y.tab.c && ./a.out < input.txt
+ */
+#line 458 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -654,9 +671,9 @@ YY_DECL
 		}
 
 	{
-#line 3 "lex.l"
+#line 24 "lex.l"
 
-#line 660 "lex.yy.c"
+#line 677 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -715,21 +732,21 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 4 "lex.l"
-{printf("%s", yytext); return *yytext;}
+#line 25 "lex.l"
+{printf("%s", yytext); return *yytext;} /* Regex for accepting '(', ')', '{', '}' */
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 5 "lex.l"
-;
+#line 26 "lex.l"
+; /* Regex for skipping every character other than '(', ')', '{', '}' */
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 8 "lex.l"
+#line 29 "lex.l"
 ECHO;
 	YY_BREAK
-#line 733 "lex.yy.c"
+#line 750 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1734,7 +1751,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 8 "lex.l"
+#line 29 "lex.l"
 
 
 int yywrap() {return 1;}
