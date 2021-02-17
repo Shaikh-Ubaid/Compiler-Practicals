@@ -34,7 +34,7 @@
     int n = 23; // total no of helping verbs.
     char* verbs[]= {
         "am", "is", "are", "was", "were", "being", "been", 
-        "be ","have", "has", "had", "do", "does", "did", 
+        "be","have", "has", "had", "do", "does", "did", 
         "will", "would", "shall", "should", "may", "might", 
         "must", "can", "could"
     }; // All the helping verbs 
