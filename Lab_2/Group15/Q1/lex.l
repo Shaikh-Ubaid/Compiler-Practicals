@@ -29,11 +29,17 @@
 %%
  
  /* Regex for identifying characters */
-[a-zA-Z] {  
-            printf("Initial Char: %c, Pos_Of_Char = %d, Transformed Char = %c\n", yytext[0], pos_of_char, ('a'+(yytext[0]-'a'+pos_of_char)%26)); 
+[a-z] {  
+            //printf("Initial Char: %c, Pos_Of_Char = %d, Transformed Char = %c\n", yytext[0], pos_of_char, ('a'+(yytext[0]-'a'+pos_of_char)%26)); 
+            printf("%c",('a'+(yytext[0]-'a'+pos_of_char)%26)); 
             pos_of_char++;
-         } 
-.  ; /* skip any symbol */
+         } ;
+[A-Z] {  
+            //printf("Initial Char: %c, Pos_Of_Char = %d, Transformed Char = %c\n", yytext[0], pos_of_char, ('A'+(yytext[0]-'A'+pos_of_char)%26)); 
+            printf("%c",('A'+(yytext[0]-'A'+pos_of_char)%26)); 
+            pos_of_char++;
+         } ;
+.  {printf(yytext);} ;/* skip any symbol */
 \n ; /* skip new lines */
 
 %%

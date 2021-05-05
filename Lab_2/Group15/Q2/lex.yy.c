@@ -446,7 +446,7 @@ char *yytext;
     Write a LEX - YACC code to recognize a string of the form, any number
     of As followed by any number of Bs (e.g., AA....ABB...B).
     Command to Run:
-    We have to run the Yacc file for this question
+   lex lex.l && yacc gram.y && gcc lex.yy.c y.tab.c && ./a.out
  */
 #line 452 "lex.yy.c"
 
@@ -665,7 +665,7 @@ YY_DECL
 		}
 
 	{
-#line 17 "lex.l"
+#line 16 "lex.l"
 
 
 #line 672 "lex.yy.c"
@@ -727,28 +727,28 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 19 "lex.l"
+#line 18 "lex.l"
 return 'A'; /* returning 'A' to Yacc Program */
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 20 "lex.l"
+#line 19 "lex.l"
 return 'B'; /* returning 'B' to Yacc Program */
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 21 "lex.l"
+#line 20 "lex.l"
 {printf("Illegal Character found: %s\n", yytext); return 1;} /* Regex for accepting illegal characters and returns 1 so as to raise an error */ 
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 22 "lex.l"
+#line 21 "lex.l"
 return '\n'; /* returning a '\n' to the Yacc Program indicating end of input */
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 24 "lex.l"
+#line 23 "lex.l"
 ECHO;
 	YY_BREAK
 #line 755 "lex.yy.c"
@@ -1756,7 +1756,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 24 "lex.l"
+#line 23 "lex.l"
 
 
 int yywrap(){return 1;} /* yywrap() return 1 on exhaustion of input */

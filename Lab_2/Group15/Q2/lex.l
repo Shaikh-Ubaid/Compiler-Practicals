@@ -8,8 +8,7 @@
     of As followed by any number of Bs (e.g., AA....ABB...B).
     
     Command to Run:
-    We have to run the Yacc file for this question
-
+   lex lex.l && yacc gram.y && gcc lex.yy.c y.tab.c && ./a.out
  */
 
 
