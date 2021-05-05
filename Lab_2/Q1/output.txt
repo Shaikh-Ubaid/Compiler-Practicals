@@ -1,0 +1,9 @@
+Initial Char: c, Pos_Of_Char = 4, Transformed Char = g
+Initial Char: o, Pos_Of_Char = 5, Transformed Char = t
+Initial Char: u, Pos_Of_Char = 6, Transformed Char = a
+Initial Char: t, Pos_Of_Char = 7, Transformed Char = a
+Initial Char: H, Pos_Of_Char = 8, Transformed Char = P
+Initial Char: e, Pos_Of_Char = 9, Transformed Char = n
+Initial Char: l, Pos_Of_Char = 10, Transformed Char = v
+Initial Char: l, Pos_Of_Char = 11, Transformed Char = w
+Initial Char: o, Pos_Of_Char = 12, Transformed Char = a
