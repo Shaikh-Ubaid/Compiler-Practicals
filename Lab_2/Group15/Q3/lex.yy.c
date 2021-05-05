@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 3
-#define YY_END_OF_BUFFER 4
+#define YY_NUM_RULES 4
+#define YY_END_OF_BUFFER 5
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -362,7 +362,7 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[8] =
     {   0,
-        0,    0,    4,    2,    3,    1,    0
+        0,    0,    5,    3,    1,    2,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -370,17 +370,17 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    3,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        1,    1,    1,    1,    3,    1,    3,    3,    3,    3,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
 
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -442,11 +442,15 @@ char *yytext;
     Adarsh 180001001
     Jeevan 180001039
     Ubaid  180001050
-    Question 1
+    Question 3:  
+    You need to build a simple Calculator using LEX and YACC. 
+    For Example- Input: 2+2*3
+    Output: 8
+    Input can be given from terminal or any other interface. 
  */
-   int pos_of_char;
-#line 449 "lex.yy.c"
-#line 450 "lex.yy.c"
+    int cnt;
+#line 453 "lex.yy.c"
+#line 454 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -663,11 +667,11 @@ YY_DECL
 		}
 
 	{
-#line 16 "lex.l"
+#line 18 "lex.l"
 
-
-
-#line 671 "lex.yy.c"
+#line 20 "lex.l"
+ 
+#line 675 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -725,21 +729,27 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
+/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 19 "lex.l"
-{printf("%c",('a'+(yytext[0]-'a'+pos_of_char)%26));} /* Regex for accepting identifiers */
+#line 21 "lex.l"
+;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 20 "lex.l"
-{printf("%s",yytext);}
+#line 22 "lex.l"
+;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 21 "lex.l"
+#line 23 "lex.l"
+{printf("charracter: %s\n", yytext); cnt++;}
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 24 "lex.l"
 ECHO;
 	YY_BREAK
-#line 743 "lex.yy.c"
+#line 753 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1744,13 +1754,14 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 21 "lex.l"
+#line 24 "lex.l"
 
 
 int yywrap(){return 1;}
 
 int main(){
-    pos_of_char=2;
+    cnt = 0;
     yylex();
-    
+    printf("The count of characters is: %d\n", cnt);
+    return 0;
 }

@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 3
-#define YY_END_OF_BUFFER 4
+#define YY_NUM_RULES 4
+#define YY_END_OF_BUFFER 5
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -362,7 +362,7 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[8] =
     {   0,
-        0,    0,    4,    2,    3,    1,    0
+        0,    0,    5,    2,    3,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -376,7 +376,7 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    3,    3,    3,    3,    3,    3,
         3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
         3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        1,    1,    1,    1,    3,    1,    3,    3,    3,    3,
+        1,    1,    1,    1,    1,    1,    3,    3,    3,    3,
 
         3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
         3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
@@ -438,17 +438,28 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "lex.l"
 #line 2 "lex.l"
- /* Group ID 15
-    Adarsh 180001001
-    Jeevan 180001039
-    Ubaid  180001050
-    Question 1_Part-1
-    Command to run:
-    lex lex.l && gcc lex.yy.c && ./a.out < input.txt > output.txt
+ /* 
+   Group ID 15
+   Adarsh 180001001
+   Jeevan 180001039
+   Ubaid  180001050
+   Question 1:
+   Write a LEX code that replaces a character [a-zA-Z] with another
+   character. Initially use any random number between 1 to 5 e.g. 2. Now, whenever you come across
+   the first alphabet in your input, that character should be replaced with another character that is 2
+   places away from it in alphabetical order e.g. If the first character is ‘m’ then it should be replaced
+   with ‘o’. The second character should be replaced with the character 3 places away from it, the
+   third character should be replaced with the character 4 places away from it and so on. Use one
+   input file and one output file. Once the count crosses 25 it should start from 1.
+   Command to run:
+   lex lex.l && gcc lex.yy.c && ./a.out < input.txt > output.txt
  */
+   #include <stdio.h> /* for using printf() */
+   #include <stdlib.h> /* for using rand() */
+   #include <time.h> /* for usign time(0) */
    int pos_of_char;
-#line 451 "lex.yy.c"
-#line 452 "lex.yy.c"
+#line 462 "lex.yy.c"
+#line 463 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -665,11 +676,12 @@ YY_DECL
 		}
 
 	{
-#line 20 "lex.l"
+#line 29 "lex.l"
 
-
-
-#line 673 "lex.yy.c"
+#line 31 "lex.l"
+ 
+ /* Regex for identifying characters */
+#line 685 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -728,20 +740,29 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 23 "lex.l"
-{printf("%c",('a'+(yytext[0]-'a'+pos_of_char)%26)),pos_of_char++;} /* Regex for accepting identifiers */
+#line 33 "lex.l"
+{  
+            printf("Initial Char: %c, Pos_Of_Char = %d, Transformed Char = %c\n", yytext[0], pos_of_char, ('a'+(yytext[0]-'a'+pos_of_char)%26)); 
+            pos_of_char++;
+         } 
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 24 "lex.l"
-{printf("%s",yytext);}
+#line 37 "lex.l"
+; /* skip any symbol */
 	YY_BREAK
 case 3:
+/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 25 "lex.l"
+#line 38 "lex.l"
+; /* skip new lines */
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 40 "lex.l"
 ECHO;
 	YY_BREAK
-#line 745 "lex.yy.c"
+#line 766 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1746,13 +1767,13 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 25 "lex.l"
+#line 40 "lex.l"
 
 
 int yywrap(){return 1;}
 
 int main(){
-    pos_of_char=2;
-    yylex();
-    
+   srand(time(0)); /* seed the rand() function */
+   pos_of_char = rand()%5 + 1; /* initialize pos_of_char with a random value between 1 to 5 */ 
+   yylex();
 }

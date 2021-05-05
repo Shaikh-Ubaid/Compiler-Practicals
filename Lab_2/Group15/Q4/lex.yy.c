@@ -360,9 +360,10 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[9] =
+static const flex_int16_t yy_accept[15] =
     {   0,
-        0,    0,    6,    3,    4,    1,    2,    0
+        0,    0,    6,    3,    4,    3,    0,    0,    0,    0,
+        0,    1,    2,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -371,9 +372,9 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    3,    1,    1,    1,    1,    4,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    3,    4,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -402,24 +403,28 @@ static const YY_CHAR yy_meta[5] =
         1,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[9] =
+static const flex_int16_t yy_base[16] =
     {   0,
-        0,    0,    5,    6,    6,    6,    6,    6
+        0,    0,   15,   16,   16,    2,    6,   12,    0,    9,
+       10,   16,    0,   16,   10
     } ;
 
-static const flex_int16_t yy_def[9] =
+static const flex_int16_t yy_def[16] =
     {   0,
-        8,    1,    8,    8,    8,    8,    8,    0
+       14,    1,   14,   14,   14,   14,   14,   15,    7,    7,
+       15,   14,    7,    0,   14
     } ;
 
-static const flex_int16_t yy_nxt[11] =
+static const flex_int16_t yy_nxt[21] =
     {   0,
-        4,    5,    6,    7,    8,    3,    8,    8,    8,    8
+        4,    5,    4,    6,    7,    8,    9,    9,   10,    9,
+       11,   12,   13,   12,   14,    3,   14,   14,   14,   14
     } ;
 
-static const flex_int16_t yy_chk[11] =
+static const flex_int16_t yy_chk[21] =
     {   0,
-        1,    1,    1,    1,    3,    8,    8,    8,    8,    8
+        1,    1,    1,    1,    6,    6,    7,    7,    7,    7,
+       15,   11,   10,    8,    3,   14,   14,   14,   14,   14
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -442,13 +447,15 @@ char *yytext;
     Adarsh 180001001
     Jeevan 180001039
     Ubaid  180001050
-    Question 2:  
-    Write a LEX - YACC code to recognize a string of the form, any number
-    of As followed by any number of Bs (e.g., AA....ABB...B).
+    Question 3:  
+    Write a LEX program to count the number of comments in a given C
+    program file.
     Command to Run:
-    We have to run the Yacc file for this question
+    lex lex.l && gcc lex.yy.c && ./a.out < input.txt 
  */
-#line 452 "lex.yy.c"
+    int cnt;
+#line 458 "lex.yy.c"
+#line 459 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -665,10 +672,11 @@ YY_DECL
 		}
 
 	{
-#line 17 "lex.l"
+#line 19 "lex.l"
 
 
-#line 672 "lex.yy.c"
+
+#line 680 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -695,13 +703,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 9 )
+				if ( yy_current_state >= 15 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 6 );
+		while ( yy_base[yy_current_state] != 16 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -726,32 +734,34 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
+/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 19 "lex.l"
-return 'A'; /* returning 'A' to Yacc Program */
+#line 22 "lex.l"
+{printf("Comment Found: %s", yytext); cnt++;}
 	YY_BREAK
 case 2:
+/* rule 2 can match eol */
 YY_RULE_SETUP
-#line 20 "lex.l"
-return 'B'; /* returning 'B' to Yacc Program */
+#line 23 "lex.l"
+{printf("Comment Found: %s\n", yytext); cnt++;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 21 "lex.l"
-{printf("Illegal Character found: %s\n", yytext); return 1;} /* Regex for accepting illegal characters and returns 1 so as to raise an error */ 
+#line 25 "lex.l"
+;
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 22 "lex.l"
-return '\n'; /* returning a '\n' to the Yacc Program indicating end of input */
+#line 26 "lex.l"
+;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 24 "lex.l"
+#line 28 "lex.l"
 ECHO;
 	YY_BREAK
-#line 755 "lex.yy.c"
+#line 765 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1048,7 +1058,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 9 )
+			if ( yy_current_state >= 15 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1076,11 +1086,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 9 )
+		if ( yy_current_state >= 15 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 8);
+	yy_is_jam = (yy_current_state == 14);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1756,7 +1766,14 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 24 "lex.l"
+#line 28 "lex.l"
 
 
-int yywrap(){return 1;} /* yywrap() return 1 on exhaustion of input */
+int yywrap(){return 1;}
+
+int main(){
+    cnt = 0;
+    yylex();
+    printf("The count of comments is: %d\n", cnt);
+    return 0;
+}
