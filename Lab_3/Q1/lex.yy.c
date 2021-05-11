@@ -449,17 +449,22 @@ char *yytext;
     Adarsh 180001001
     Jeevan 180001039
     Ubaid  180001050
+    -------------------------------------------------------------
     Question 1:  
     Write a LEX program to recognize a valid arithmetic expression and
-    identify the operands and operators present. (For example in a+b, total operands = 2, operator=1). 
-    For Example- Input: 2+2*3
-    Output: 8
-    Input can be given from terminal or any other interface. 
+    identify the operands and operators present. 
+    For example-
+    Input: a+b 
+    Output:
+    total operands = 2
+    total operators = 1
+    How to run?
+    lex lex.l && gcc lex.yy.c && ./a.out
  */
-    #include <stdio.h>
-    int operand_cnt, operator_cnt; 
-#line 462 "lex.yy.c"
-#line 463 "lex.yy.c"
+    #include <stdio.h> /* for using printf */
+    int operand_cnt, operator_cnt; /* declaring variables for storing counts */
+#line 467 "lex.yy.c"
+#line 468 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -676,10 +681,10 @@ YY_DECL
 		}
 
 	{
-#line 21 "lex.l"
+#line 28 "lex.l"
 
 
-#line 683 "lex.yy.c"
+#line 688 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -738,46 +743,46 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 23 "lex.l"
+#line 30 "lex.l"
 {printf("Operand: %s\n", yytext); operand_cnt++;} /* Regex for accepting identifiers */
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 24 "lex.l"
+#line 31 "lex.l"
 {printf("Operand: %s\n", yytext); operand_cnt++;} /* Regex for accepting integers or floating numbers */
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 25 "lex.l"
-{printf("Operator: %s\n", yytext); operator_cnt++;} /* Regex for accepting '-', '+', '(', ')', '*', '/', '%', '\n' */
+#line 32 "lex.l"
+{printf("Operator: %s\n", yytext); operator_cnt++;} /* Regex for accepting '-', '+', '*', '/', '%' */
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 26 "lex.l"
-;   /* Regex for ignoring brackets */
+#line 33 "lex.l"
+;   /* Regex for ignoring/skipping brackets */
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 27 "lex.l"
-;   /* Regex for ignoring spaces */
+#line 34 "lex.l"
+;   /* Regex for ignoring/skipping spaces */
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 28 "lex.l"
-return 1;
+#line 35 "lex.l"
+return 1; /* return when we get a new line character */
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 29 "lex.l"
+#line 36 "lex.l"
 {printf("Illegal Character found: %s\nExiting...\n", yytext); exit(1);} /* Regex for accepting illegal characters and exits */
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 31 "lex.l"
+#line 38 "lex.l"
 ECHO;
 	YY_BREAK
-#line 781 "lex.yy.c"
+#line 786 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1782,7 +1787,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 31 "lex.l"
+#line 38 "lex.l"
 
 
 int yywrap(){return 1;}
@@ -1791,7 +1796,8 @@ int main(){
     /* initializing counts to 0 */
     operand_cnt = 0;
     operator_cnt = 0;
-    yylex(); /* calling the yylex() function here */
+    printf("Enter an arithmetic expression: "); /* prompt user for input */
+    yylex(); /* our lexical analyzer starts from here */
 
     /* printing the results */
     printf("Number of operands = %d\n", operand_cnt);
