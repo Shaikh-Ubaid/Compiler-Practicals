@@ -8,15 +8,16 @@
     -------------------------------------------------------------
 
     Question 2:  
-    Question 2 [Marks: 8]: Write a LEX program to count the number of printf and scanf statements
-    in given C subroutine.
+    Write a LEX program to count the number of printf and scanf statements in given C subroutine.
 
     --------------------------------------
 
     How to run?
-    ~ lex lex.l
-    ~ gcc lex.yy.c
-    ~ ./a.out < test.c
+    lex lex.l && gcc lex.yy.c && ./a.out < test.c
+
+    Input: 
+    A C program with 2 scanf's and 1 printf.
+
 
     output:
     No of scanf found: 2

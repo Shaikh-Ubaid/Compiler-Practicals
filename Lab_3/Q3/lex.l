@@ -15,22 +15,23 @@
  */
 
 %{
+    /* intializing all the counters to zero*/
     int cnt_pos=0,cnt_neg=0,cnt_fpos=0,cnt_fneg=0;
 %}
 
 %%
 
-[-][0-9]*[0-9] {cnt_neg++;};
-\+?[0-9]*[0-9] {cnt_pos++;};
-\+?[0-9]*[.][0-9]* {cnt_fpos++;};
-[-][0-9]*[.][0-9]* {cnt_fneg++;};
+[-][0-9]*[0-9] {cnt_neg++;};//Number is of the form -238 
+\+?[0-9]*[0-9] {cnt_pos++;};//Number is of the form +23 or 23
+\+?[0-9]*[.][0-9]* {cnt_fpos++;};//Number is of the form +23.0 or 23.09086
+[-][0-9]*[.][0-9]* {cnt_fneg++;};//Number is of the form -123.023,-2.0
 . ;
 %%
 
 int yywrap(){return 1;}
 
 int main(){
-    cnt_neg = cnt_neg = 0;
+    cnt_pos = cnt_neg = cnt_fpos = cnt_fneg = 0;
     yylex();
     printf("No of Positive integers: %d\nNo of Negative integers: %d\nNo of Positive Fractions: %d\nNo of Negative Fractions: %d\n",cnt_pos,cnt_neg,cnt_fpos,cnt_fneg);
     return 0;
