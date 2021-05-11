@@ -4,8 +4,10 @@
     Ubaid  180001050
 
     Question 3:  
-    Write a LEX code to take input from text file and count the number of
-    characters.
+    Write a LEX program to count the number of
+    (a) Positive and Negative integers
+    (b) Positive and Negative fractions 
+    i.e. whether the given number is positive integer, negative integer, positive fraction or negative fraction.
     
     Command to Run:
     lex lex.l && gcc lex.yy.c && ./a.out < input.txt 

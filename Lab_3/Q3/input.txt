@@ -3,6 +3,6 @@ using namespace std;
 
 int main(){
     printf("Hello");
-    scan= 9+3-4;
+    scan= 9+3-4.0;
     printf;
 }
