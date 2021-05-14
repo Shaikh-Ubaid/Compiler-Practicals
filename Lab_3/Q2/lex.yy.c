@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 4
-#define YY_END_OF_BUFFER 5
+#define YY_NUM_RULES 9
+#define YY_END_OF_BUFFER 10
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -360,9 +360,11 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[9] =
+static const flex_int16_t yy_accept[26] =
     {   0,
-        0,    0,    5,    3,    2,    1,    1,    0
+        0,    0,   10,    6,    4,    6,    6,    6,    6,    6,
+        2,    1,    3,    5,    0,    0,    3,    0,    0,    0,
+        0,    0,    8,    7,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -370,17 +372,17 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    3,    1,    1,    1,    1,    1,    1,
+        1,    4,    1,    1,    1,    1,    5,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        1,    1,    1,    1,    1,    1,    3,    3,    3,    3,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    6,    1,    1,    1,    1,    7,    1,    8,    1,
 
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    9,    1,    1,   10,    1,    1,    1,    1,   11,
+        1,   12,    1,   13,   14,   15,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -397,29 +399,42 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[4] =
+static const YY_CHAR yy_meta[16] =
     {   0,
-        1,    1,    2
+        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[10] =
+static const flex_int16_t yy_base[27] =
     {   0,
-        0,    0,    5,    6,    6,    0,    0,    6,    2
+        0,    0,   30,   31,   31,   24,   12,   25,   14,   18,
+       31,   31,    0,   31,   15,   17,    0,   12,   11,    6,
+       11,   10,   31,   31,   31,   17
     } ;
 
-static const flex_int16_t yy_def[10] =
+static const flex_int16_t yy_def[27] =
     {   0,
-        8,    1,    8,    8,    8,    9,    9,    0,    8
+       25,    1,   25,   25,   25,   25,   25,   25,   25,   25,
+       25,   25,   26,   25,   25,   25,   26,   25,   25,   25,
+       25,   25,   25,   25,    0,   25
     } ;
 
-static const flex_int16_t yy_nxt[10] =
+static const flex_int16_t yy_nxt[47] =
     {   0,
-        4,    5,    6,    7,    8,    3,    8,    8,    8
+        4,    4,    5,    6,    7,    8,    4,    4,    4,    4,
+        4,    9,    4,   10,    4,   12,   13,   17,   24,   23,
+       22,   21,   20,   19,   18,   16,   15,   14,   11,   25,
+        3,   25,   25,   25,   25,   25,   25,   25,   25,   25,
+       25,   25,   25,   25,   25,   25
     } ;
 
-static const flex_int16_t yy_chk[10] =
+static const flex_int16_t yy_chk[47] =
     {   0,
-        1,    1,    1,    9,    3,    8,    8,    8,    8
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    7,    7,   26,   22,   21,
+       20,   19,   18,   16,   15,   10,    9,    8,    6,    3,
+       25,   25,   25,   25,   25,   25,   25,   25,   25,   25,
+       25,   25,   25,   25,   25,   25
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -447,23 +462,35 @@ char *yytext;
     -------------------------------------------------------------
 
     Question 2:  
+    Write a LEX program to count the number of printf and scanf statements in given C subroutine.
 
     --------------------------------------
 
     How to run?
-    ~ lex lex.l
-    ~ gcc lex.yy.c
-    ~ ./a.out
+    lex lex.l && gcc lex.yy.c && ./a.out < test.c
+
+    Input: 
+    A C program with 2 scanf's and 1 printf.
+
+
+    output:
+    No of scanf found: 2
+    No of printf found: 1
+
  */
-#line 21 "lex.l"
-    #include<ctype.h>  /* Needed for using tolower function */
-    int isWord(char*); // Function declatation for checking
+#line 29 "lex.l"
+    #include<stdio.h> /* for using printf, fopen and fclose */
+    /* 
+        is_inside_multiline_comment acts as a flag variable, it indicates if
+        we are currently inside a multiline comment or not 
+    */
+    int is_inside_multiline_comment = 0, is_inside_string = 0;
 
     int nscanf = 0; // total no of scanf.
     int nprintf = 0; // total no of printf.
     
-#line 466 "lex.yy.c"
-#line 467 "lex.yy.c"
+#line 493 "lex.yy.c"
+#line 494 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -680,9 +707,10 @@ YY_DECL
 		}
 
 	{
-#line 29 "lex.l"
+#line 41 "lex.l"
 
-#line 686 "lex.yy.c"
+
+#line 714 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -709,13 +737,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 9 )
+				if ( yy_current_state >= 26 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 6 );
+		while ( yy_base[yy_current_state] != 31 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -741,28 +769,109 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 30 "lex.l"
-{     // Regex to identify all the english words
-    isWord(yytext);
-    }
+#line 43 "lex.l"
+{
+            if(!is_inside_multiline_comment){ /* check if we are not already inside a multiline comment */
+                /* if we were not inside a multiline comment already, 
+                set flag = 1, indicating we are now inside the multiline comment */
+                is_inside_multiline_comment = 1; 
+                printf("Comment: /*");
+            } 
+        }
 	YY_BREAK
 case 2:
-/* rule 2 can match eol */
 YY_RULE_SETUP
-#line 33 "lex.l"
-;
+#line 52 "lex.l"
+{
+            if(is_inside_multiline_comment){ /* check if are already inside a multiline comment */
+                /* if we are inside a multiline comment already, 
+                set flag = 0, indicating we are no more inside the multiline comment */
+                is_inside_multiline_comment = 0; 
+                printf("*/\n");
+            } 
+        }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 34 "lex.l"
-;             // skipping all the remaining chatacters/spaces
+#line 61 "lex.l"
+{
+            if(!is_inside_multiline_comment) /* check if we are not inside a multiline comment */
+            {
+                /* if we are not inside a multiline comment, then we have found a single line comment */
+                printf("Comment: %s\n", yytext);
+            } 
+        }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 36 "lex.l"
+#line 69 "lex.l"
+{
+            if(!is_inside_string){ /* check if we are not already inside a string */
+                /* if we were not inside a string
+                set flag = 1, indicating we are now inside a string */
+                is_inside_string = 1; 
+                printf("String: \"");
+            }
+            else{
+                /* if we were inside a string
+                set flag = 0, indicating we are now not inside a string */
+                is_inside_string = 0; 
+                printf("\"\n");
+            } 
+        } 
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 84 "lex.l"
+{
+            if(is_inside_multiline_comment | is_inside_string){ 
+                ECHO;
+            } 
+        } 
+	YY_BREAK
+case 6:
+/* rule 6 can match eol */
+YY_RULE_SETUP
+#line 90 "lex.l"
+{
+            if(is_inside_multiline_comment | is_inside_string){ /* check if we are inside a multiline comment or a string*/
+                ECHO; /* if we are inside a multiline comment  or a string, then print the current character */
+            }
+        }
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 96 "lex.l"
+{
+                if(!is_inside_multiline_comment && !is_inside_string){
+                    printf("printf found!\n");
+                    nprintf++;
+                }
+                else{
+                    ECHO;
+                }
+                
+            }
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 107 "lex.l"
+{
+                if(!is_inside_multiline_comment && !is_inside_string){
+                    printf("scanf found!\n");
+                    nscanf++;
+                }
+                else{
+                    ECHO;
+                }
+            }
+	YY_BREAK
+case 9:
+YY_RULE_SETUP
+#line 118 "lex.l"
 ECHO;
 	YY_BREAK
-#line 766 "lex.yy.c"
+#line 875 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1059,7 +1168,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 9 )
+			if ( yy_current_state >= 26 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1087,11 +1196,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 9 )
+		if ( yy_current_state >= 26 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 8);
+	yy_is_jam = (yy_current_state == 25);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1767,26 +1876,13 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 36 "lex.l"
+#line 118 "lex.l"
 
 
-/*
-* isWord
-* Detects the given word againt the helping printf and scanf
-*/
-int isWord(char* word){
-    
-    // strcmp returns 0 when str1 is equal to str2
-    if(strcmp(word, "scanf") == 0) nscanf++;
-    if(strcmp(word, "printf") == 0) nprintf++;
-
-    return 0;
-}
 
 int yywrap() {return 1;}
 
-// main function is needed because we do not need a parser
-// for this Question.
+/* main function is needed since we are not using a parser for this Question. */
 int main(){
     yylex();
 

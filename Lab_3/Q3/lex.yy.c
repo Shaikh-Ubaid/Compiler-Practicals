@@ -448,14 +448,17 @@ char *yytext;
     Jeevan 180001039
     Ubaid  180001050
     Question 3:  
-    Write a LEX code to take input from text file and count the number of
-    characters.
+    Write a LEX program to count the number of
+    (a) Positive and Negative integers
+    (b) Positive and Negative fractions 
+    i.e. whether the given number is positive integer, negative integer, positive fraction or negative fraction.
     Command to Run:
     lex lex.l && gcc lex.yy.c && ./a.out < input.txt 
  */
+    /* intializing all the counters to zero*/
     int cnt_pos=0,cnt_neg=0,cnt_fpos=0,cnt_fneg=0;
-#line 458 "lex.yy.c"
-#line 459 "lex.yy.c"
+#line 461 "lex.yy.c"
+#line 462 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -672,10 +675,10 @@ YY_DECL
 		}
 
 	{
-#line 19 "lex.l"
+#line 22 "lex.l"
 
 
-#line 679 "lex.yy.c"
+#line 682 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -734,35 +737,35 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 21 "lex.l"
-{cnt_neg++;};
+#line 24 "lex.l"
+{cnt_neg++;};//Number is of the form -238 
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 22 "lex.l"
-{cnt_pos++;};
+#line 25 "lex.l"
+{cnt_pos++;};//Number is of the form +23 or 23
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 23 "lex.l"
-{cnt_fpos++;};
+#line 26 "lex.l"
+{cnt_fpos++;};//Number is of the form +23.0 or 23.09086
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 24 "lex.l"
-{cnt_fneg++;};
+#line 27 "lex.l"
+{cnt_fneg++;};//Number is of the form -123.023,-2.0
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 25 "lex.l"
+#line 28 "lex.l"
 ;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 26 "lex.l"
+#line 29 "lex.l"
 ECHO;
 	YY_BREAK
-#line 766 "lex.yy.c"
+#line 769 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1767,13 +1770,13 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 26 "lex.l"
+#line 29 "lex.l"
 
 
 int yywrap(){return 1;}
 
 int main(){
-    cnt_neg = cnt_neg = 0;
+    cnt_pos = cnt_neg = cnt_fpos = cnt_fneg = 0;
     yylex();
     printf("No of Positive integers: %d\nNo of Negative integers: %d\nNo of Positive Fractions: %d\nNo of Negative Fractions: %d\n",cnt_pos,cnt_neg,cnt_fpos,cnt_fneg);
     return 0;
